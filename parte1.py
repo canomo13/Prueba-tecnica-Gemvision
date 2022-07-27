@@ -2,5 +2,5 @@
 # -*- coding: utf-8 -*-
 
 def parte1():
-    archivo = open("Input.txt")
+    archivo = open("txt/Input.txt")
     print(archivo.readable())
