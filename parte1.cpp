@@ -1,16 +1,20 @@
-#include <iostream>
 #include <fstream>
+#include <iostream>
+#include <vector>
+#include <iterator>
 
-using namespace std;
+int main(){
+  std::ifstream infile("txt/Input.txt");
+  std::vector<int> Numeros;
+  int numero;
+  while( infile >> numero)
+  {
+    Numeros.push_back(numero);
+  }
 
-int main()
-{
-    char cadena[128];
-    ifstream fe("txt/Input.txt");
-    while (!fe.eof()) {
-        fe >> cadena;
-        cout << cadena << endl;
-    }
-    fe.close();
+  std::copy(Numeros.begin(),Numeros.end(),
+            std::ostream_iterator<int>(std::cout," "));
+  std::cout << '\n';
 
+  return EXIT_SUCCESS;
 }
